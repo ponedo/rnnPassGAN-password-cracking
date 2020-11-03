@@ -1,0 +1,9 @@
+experiments/
+venv/
+data/rockyou-train.txt
+*.pyc
+.ipynb_checkpoints
+model/*/samples/*
+!model/*/samples/samples_100000.txt
+model/*/checkpoints/checkpoint_*
+!model/*/checkpoints/checkpoint_100000.*
