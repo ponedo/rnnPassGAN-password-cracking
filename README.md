@@ -23,18 +23,18 @@ GAN-based password guessing (trawling attacking)
 使用预训练好的模型，直接生成口令的方法如下（以csdn数据集为例）：
 ```bash
 # 使用CNN-GAN
-python sample.py -i ./csdn_cnn_model -o ./guess/cnn_gen_csdn.txt -m cnn -ck ./csdn_cnn_model/checkpoints/checkpoint_100000.ckpt
+python sample.py -m cnn -n 1000000 -i ./model/csdn_cnn_model -o ./guess/gen_csdn_cnn.txt -ck ./model/csdn_cnn_model/checkpoints/checkpoint_100000.ckpt
 # 使用RNN-GAN
-python sample.py -i ./csdn_rnn_model -o ./guess/rnn_gen_csdn.txt -m rnn -ck ./csdn_rnn_model/checkpoints/checkpoint_100000.ckpt
+python sample.py -m rnn -n 1000000 -i ./model/csdn_rnn_model -o ./guess/gen_csdn_rnn.txt -ck ./model/csdn_rnn_model/checkpoints/checkpoint_100000.ckpt
 ```
 ### 从头开始训练模型 Train from beginning
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 使用csdn数据集训练模型：
 ```bash
 # 使用CNN-GAN
-python train.py -i ./data/csdn_train.txt -o ./csdn_cnn_model -m cnn -b 64
+python train.py -m cnn -b 64 -i ./data/csdn_train.txt -o ./model/csdn_cnn_model
 # 使用RNN-GAN
-python train.py -i ./data/csdn_train.txt -o ./csdn_rnn_model -m rnn -b 64
+python train.py -m rnn -b 64 -i ./data/csdn_train.txt -o ./model/csdn_rnn_model
 ```
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 可以使用自己的数据集，改变-i参数即可。
@@ -43,9 +43,9 @@ python train.py -i ./data/csdn_train.txt -o ./csdn_rnn_model -m rnn -b 64
 比从头开始训练多了-ck命令行参数：
 ```bash
 # 使用CNN-GAN
-python train.py -i ./data/csdn_train.txt -o ./model/csdn_cnn_model -m cnn -b 64 -ck ./csdn_cnn_model/checkpoints/checkpoint_100000.ckpt
+python train.py -m cnn -b 64 -i ./data/csdn_train.txt -o ./model/csdn_cnn_model -ck ./model/csdn_cnn_model/checkpoints/checkpoint_100000.ckpt
 # 使用RNN-GAN
-python train.py -i ./data/csdn_train.txt -o ./model/csdn_rnn_model -m rnn -b 64 -s 5000 -c 1 -ck ./csdn_cnn_model/checkpoints/checkpoint_100000.ckpt
+python train.py -m rnn -b 64 -i ./data/csdn_train.txt -o ./model/csdn_rnn_model -c 1 -ck ./model/csdn_cnn_model/checkpoints/checkpoint_100000.ckpt
 ```
 
 ## 其他问题 Other question

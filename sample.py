@@ -1,4 +1,5 @@
 import argparse
+import os
 def parse_args():
     parser = argparse.ArgumentParser()
 
@@ -77,7 +78,6 @@ args = parse_args()
 assert args.model_type in ["cnn", "rnn", "rnn1", "rnn2"], "Wrong model type. Legal types are: cnn, rnn."
 
 
-import os
 import time
 import pickle
 
