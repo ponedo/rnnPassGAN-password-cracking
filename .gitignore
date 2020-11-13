@@ -7,3 +7,9 @@ model/*/samples/*
 !model/*/samples/samples_100000.txt
 model/*/checkpoints/checkpoint_*
 !model/*/checkpoints/checkpoint_100000.*
+guess/
+!guess/gen_csdn_cnn.txt
+!guess/gen_csdn_rnn.txt
+!guess/gen_yahoo_cnn.txt
+!guess/gen_yahoo_rnn.txt
+chong.bat
